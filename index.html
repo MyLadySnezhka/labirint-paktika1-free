@@ -10,24 +10,30 @@
 </head>
 <body>
     <div class="main-container">
+        <input type="number" name="numberRow" placeholder="Количество строк">
+        <input type="number" name="numberColumn" placeholder="Количество столбцов">
+        <input type="number" name="numberBarrier" placeholder="Количество преград">
+        <button type="button" name="startBtn">Go!</button>
         <div class="pole">
             <div class="game-block"></div>
         </div>
+
+
         <div class="key-block">
             <div class="key-block-row">
                 <div class="empty-block"></div>
-                <div class="arrow-up"></div>
+                <button type="button" class="arrow" name="arrow-up">UP</button>
                 <div class="empty-block"></div>
             </div>
             <div class="key-block-row">
-                <div class="arrow-left"></div>
+                <button type="button" class="arrow" name="arrow-left">LEFT</button>
                 <div class="empty-block"></div>
-                <div class="arrow-right"></div>
+                <button type="button" class="arrow" name="arrow-right">RIGHT</button>
             </div>
 
             <div class="key-block-row">
                 <div class="empty-block"></div>
-                <div class="arrow-down"></div>
+                <button type="button" class="arrow" name="arrow-down">DOWN</button>
                 <div class="empty-block"></div>
             </div>
 
