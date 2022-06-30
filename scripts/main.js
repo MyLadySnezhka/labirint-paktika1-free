@@ -5,19 +5,6 @@ const arrDownLink = document.querySelector('button[name="arrow-down"]');
 const arrLeftLink = document.querySelector('button[name="arrow-left"]');
 const arrRightLink = document.querySelector('button[name="arrow-right"]');
 
-/*
-let napr, znak;
-
-const arrowjump = (buttonlink) => {
-    buttonlink.addEventListener('click', (ev) => {
-        //ТУТ НУЖНО СЧИТЫВАТЬ ТЕКУЩИЕ КООРДИНАТЫ
-    gblocklink.style.top += '10px';
-}
-    )};
-
-    arrowjump(arrUpLink);
-*/
-
 let coordY, coordX;
 let poleHeight, poleWidth;
 
@@ -27,6 +14,8 @@ const numColLnk = document.querySelector('input[name="numberColumn"]');
 const startBtnLink = document.querySelector('button[name="startBtn"]');
 
 const poleLnk = document.querySelector('.pole');
+
+//добавить ограничение на количество строк и столбцов
 
 startBtnLink.addEventListener('click', (ev) => {
     const row = numRowLnk.value; 
@@ -75,7 +64,7 @@ arrRightLink.addEventListener('click', (ev) => {
     return;
 })
 
-
+//добавить управление стрелками с клавиатуры
 
 
 
