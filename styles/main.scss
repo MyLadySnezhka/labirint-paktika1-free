@@ -59,6 +59,20 @@
 }
 
  
+.barrier {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    background-color: gray;
+    position: absolute;
+}
 
+.finish {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    background-color: green;
+    position: absolute;
+}
 
 

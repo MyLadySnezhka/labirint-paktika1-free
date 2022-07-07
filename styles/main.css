@@ -72,4 +72,22 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+.barrier {
+  width: 100px;
+  height: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: gray;
+  position: absolute;
+}
+
+.finish {
+  width: 100px;
+  height: 100px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: green;
+  position: absolute;
+}
 /*# sourceMappingURL=main.css.map */
