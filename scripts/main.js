@@ -2,6 +2,8 @@ const gblocklink = document.querySelector('.game-block');
 const barrierlink = document.querySelector('.barrier');
 const finishlink = document.querySelector('.finish');
 
+const msglink = document.querySelector('.message-block');
+
 const buttonlink = document.querySelector('.arrow');
 const arrUpLink = document.querySelector('button[name="arrow-up"]');
 const arrDownLink = document.querySelector('button[name="arrow-down"]');
@@ -18,13 +20,17 @@ const startBtnLink = document.querySelector('button[name="startBtn"]');
 
 const poleLnk = document.querySelector('.pole');
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
 //добавить ограничение на количество строк и столбцов
 
 startBtnLink.addEventListener('click', (ev) => {
     const row = numRowLnk.value; 
     const col = numColLnk.value;
     if((row<2) || (col<2)) {
-        poleLnk.innerHTML = `Маловато будет!`;
+        msglink.innerHTML = `Маловато будет!`;
         return;
     }
     const barrierNumber = barrierlink.value;
@@ -32,7 +38,7 @@ startBtnLink.addEventListener('click', (ev) => {
     poleWidth = col*100;
     poleLnk.style.height = `${poleHeight}px`;
     poleLnk.style.width = `${poleWidth}px`;
-    
+    msglink.innerHTML = ``;
     
     gblocklink.style.top = `${100*getRandomInt(row)}px`;
     gblocklink.style.left = `${100*getRandomInt(col)}px`;
@@ -52,9 +58,7 @@ startBtnLink.addEventListener('click', (ev) => {
     //добавить проверку на накладывание квадратов    
 })
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
+
 
 let coordXY = () => {
     barrY = parseInt(barrierlink.style.top);
