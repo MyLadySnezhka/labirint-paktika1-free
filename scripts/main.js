@@ -15,6 +15,7 @@ let poleHeight, poleWidth;
 
 const numRowLnk = document.querySelector('input[name="numberRow"]');
 const numColLnk = document.querySelector('input[name="numberColumn"]');
+const numBarrier = document.querySelector('input[name="numberBarrier"]');
 
 const startBtnLink = document.querySelector('button[name="startBtn"]');
 
@@ -24,16 +25,24 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
-//ограничение на количество строк и столбцов
 startBtnLink.addEventListener('click', (ev) => {
+    //ограничение на количество строк и столбцов
     const row = numRowLnk.value; 
     const col = numColLnk.value;
     if((row<2) || (col<2)) {
-        msglink.innerHTML = `Маловато будет!`;
+        msglink.innerHTML = `Маловато будет! Сделай поле больше!`;
         return;
     }
 
-    const barrierNumber = barrierlink.value;
+    //Ограничение на количество преград
+    const barrierNumber = numBarrier.value;
+    const barrierMax = row*col-2;  
+    if(barrierNumber>barrierMax) {
+        console.log(barrierNumber, barrierMax);
+        msglink.innerHTML = `Слишком много преград!`;
+        return;
+    }
+
     poleHeight = row*100;
     poleWidth = col*100;
     poleLnk.style.height = `${poleHeight}px`;
@@ -49,11 +58,16 @@ startBtnLink.addEventListener('click', (ev) => {
     barrierlink.style.top = `${100*getRandomInt(row)}px`;
     barrierlink.style.left = `${100*getRandomInt(col)}px`;  
 
+    let barr = [];
     //сюда добавить генерацию преград
     for (let i=0; i<=barrierNumber; i++) {
-        barrierlink.style.top = `${100*getRandomInt(row)}px`;
-        barrierlink.style.left = `${100*getRandomInt(col)}px`;   
+        const elem = document.createElement('div');
+        elem.className = 'barrier';
+        elem.style.top = `${100*getRandomInt(row)}px`;
+        elem.style.left = `${100*getRandomInt(col)}px`;   
+        barr.push(elem);
     }
+    console.log(barr[1]);
 
     //добавить проверку на накладывание квадратов    
 })
