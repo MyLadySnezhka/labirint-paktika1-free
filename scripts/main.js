@@ -38,7 +38,6 @@ startBtnLink.addEventListener('click', (ev) => {
     const barrierNumber = numBarrier.value;
     const barrierMax = row*col-2;  
     if(barrierNumber>barrierMax) {
-        console.log(barrierNumber, barrierMax);
         msglink.innerHTML = `Слишком много преград!`;
         return;
     }
@@ -55,19 +54,21 @@ startBtnLink.addEventListener('click', (ev) => {
     finishlink.style.top = `${100*getRandomInt(row)}px`;
     finishlink.style.left = `${100*getRandomInt(col)}px`;
     
-    barrierlink.style.top = `${100*getRandomInt(row)}px`;
-    barrierlink.style.left = `${100*getRandomInt(col)}px`;  
+    // barrierlink.style.top = `${100*getRandomInt(row)}px`;
+    // barrierlink.style.left = `${100*getRandomInt(col)}px`;  
 
+    //генерация преград
     let barr = [];
-    //сюда добавить генерацию преград
-    for (let i=0; i<=barrierNumber; i++) {
+    for (let i=0; i<barrierNumber; i++) {
         const elem = document.createElement('div');
         elem.className = 'barrier';
         elem.style.top = `${100*getRandomInt(row)}px`;
         elem.style.left = `${100*getRandomInt(col)}px`;   
-        barr.push(elem);
+        document.polelink.appendChild(elem);
     }
-    console.log(barr[1]);
+
+
+    console.log(barr);
 
     //добавить проверку на накладывание квадратов    
 })
