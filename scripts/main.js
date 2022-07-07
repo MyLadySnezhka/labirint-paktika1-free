@@ -24,8 +24,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
-//добавить ограничение на количество строк и столбцов
-
+//ограничение на количество строк и столбцов
 startBtnLink.addEventListener('click', (ev) => {
     const row = numRowLnk.value; 
     const col = numColLnk.value;
@@ -33,6 +32,7 @@ startBtnLink.addEventListener('click', (ev) => {
         msglink.innerHTML = `Маловато будет!`;
         return;
     }
+
     const barrierNumber = barrierlink.value;
     poleHeight = row*100;
     poleWidth = col*100;
