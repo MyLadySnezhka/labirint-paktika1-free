@@ -144,6 +144,70 @@ arrRightLink.addEventListener('click', (ev) => {
 
 //добавить управление стрелками с клавиатуры
 
+document.addEventListener('keydown', (event) => {
+    const keyName = event.key;
+    if (keyName === 'ArrowUp') {
+        coordXY();
+    coordY = coordY - 100;
+    finishXY();
+    if (coordY>=0)  
+        {if ((coordY === barrY) && (coordX === barrX)) {
+            barrY = barrY - 100;
+            if (barrY>=0) {
+                barrierlink.style.top = `${barrY}px`;
+                gblocklink.style.top = `${coordY}px`}
+            else return;    
+        } 
+        else {gblocklink.style.top = `${coordY}px`;}}
+    return;
+    }
+    else if (keyName === 'ArrowDown') { 
+        coordXY();
+        coordY = coordY + 100;
+        finishXY();
+        if (coordY<=poleHeight-100)
+                {if ((coordY === barrY) && (coordX === barrX)) {
+                    barrY = barrY+100;
+                    if (barrY<=poleHeight-100) {
+                        barrierlink.style.top = `${barrY}px`;
+                        gblocklink.style.top = `${coordY}px`}
+                    else return;    
+                } 
+                else {gblocklink.style.top = `${coordY}px`;}}
+            return;
+    }
+    else if (keyName === 'ArrowLeft') { 
+        coordXY();
+        coordX = coordX - 100;
+        finishXY();
+        if (coordX>=0)  
+            {if ((coordY === barrY) && (coordX === barrX)) {
+                barrX = barrX - 100;
+                if (barrX>=0) {
+                    barrierlink.style.left = `${barrX}px`;
+                    gblocklink.style.left = `${coordX}px`}
+                else return;    
+            } 
+            else {gblocklink.style.left = `${coordX}px`;}}
+        return;
+    }
+    else if (keyName === 'ArrowRight') { 
+        coordXY();
+        coordX = coordX + 100;
+        finishXY();
+        if (coordX<=poleWidth-100)
+            {if ((coordY === barrY) && (coordX === barrX)) {
+                barrX = barrX + 100;
+                if (barrX<=poleWidth-100) {
+                    barrierlink.style.left = `${barrX}px`;
+                    gblocklink.style.left = `${coordX}px`}
+                else return;    
+            } 
+            else {gblocklink.style.left = `${coordX}px`;}}
+        return;
+    }
+})  
+
 
 
     
