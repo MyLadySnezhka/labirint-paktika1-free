@@ -23,25 +23,38 @@ const poleLnk = document.querySelector('.pole');
 startBtnLink.addEventListener('click', (ev) => {
     const row = numRowLnk.value; 
     const col = numColLnk.value;
+    if((row<2) || (col<2)) {
+        poleLnk.innerHTML = `Маловато будет!`;
+        return;
+    }
     const barrierNumber = barrierlink.value;
-    console.log(barrierNumber);
     poleHeight = row*100;
     poleWidth = col*100;
     poleLnk.style.height = `${poleHeight}px`;
     poleLnk.style.width = `${poleWidth}px`;
     
     
+    gblocklink.style.top = `${100*getRandomInt(row)}px`;
+    gblocklink.style.left = `${100*getRandomInt(col)}px`;
+
+    finishlink.style.top = `${100*getRandomInt(row)}px`;
+    finishlink.style.left = `${100*getRandomInt(col)}px`;
     
-    //плохо работает с нечетным количеством строк
-    gblocklink.style.top = `${row*100/2}px`;
-    gblocklink.style.left = `${col*100/2}px`;
+    barrierlink.style.top = `${100*getRandomInt(row)}px`;
+    barrierlink.style.left = `${100*getRandomInt(col)}px`;  
 
     //сюда добавить генерацию преград
-    barrierlink.style.top = '300px';
-    barrierlink.style.left = '200px';
-    finishlink.style.top = '400px';
-    finishlink.style.left = '300px';
+    for (let i=0; i<=barrierNumber; i++) {
+        barrierlink.style.top = `${100*getRandomInt(row)}px`;
+        barrierlink.style.left = `${100*getRandomInt(col)}px`;   
+    }
+
+    //добавить проверку на накладывание квадратов    
 })
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
 let coordXY = () => {
     barrY = parseInt(barrierlink.style.top);
@@ -54,7 +67,7 @@ let coordXY = () => {
 
 let finishXY = () => {
     if ((coordY === finishY) && (coordX === finishX)) {
-        poleLnk.innerHTML = 'You are WIN';
+        poleLnk.innerHTML = `<span class="wintext">You are WIN!!!</span>`;
         return;
     }
 }

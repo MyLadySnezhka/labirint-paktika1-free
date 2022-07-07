@@ -15,17 +15,17 @@
     position: relative;
     margin: 50px 0;
     background-color: antiquewhite;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-block {
     width: 100px;
     height: 100px;
     box-sizing: border-box;
-    //border: 1px solid red;
     background-color: red;
     position: absolute;
-    //top: 400px;
-    //left: 300px;
 }
 
 .key-block {
@@ -75,4 +75,9 @@
     position: absolute;
 }
 
+.wintext {
+    font-size: 46px;
+    font-weight: bold;
+    color: green;
+}
 
