@@ -27,6 +27,8 @@
     box-sizing: border-box;
     background-color: red;
     position: absolute;
+    top: 100px;
+    left: 100px;
 }
 
 .key-block {
@@ -63,9 +65,10 @@
 .barrier {
     width: 100px;
     height: 100px;
-    box-sizing: border-box;
     background-color: gray;
     position: absolute;
+    border: 2px solid #fff;
+    box-sizing: border-box;
 }
 
 .finish {

@@ -142,8 +142,7 @@ arrRightLink.addEventListener('click', (ev) => {
     return;
 })
 
-//добавить управление стрелками с клавиатуры
-
+//управление стрелками с клавиатуры
 document.addEventListener('keydown', (event) => {
     const keyName = event.key;
     if (keyName === 'ArrowUp') {
